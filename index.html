@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <!-- Bootstrap CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    
+        <title>Girlfriend's Arrival Countdown</title>
+    
+        <style>
+            .carousel-item {
+                height: 100vh;
+                min-height: 350px;
+                background: no-repeat center center scroll;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+    
+            #countdown {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                font-size: 3em;
+            }
+    
+            #quote {
+                position: absolute;
+                top: 60%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                font-size: 1.5em;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <!-- More list items as per your number of images -->
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <!-- Carousel images here -->
+            <div class="carousel-item active" style="backdrop-filter: grayscale(100%); background-image: url('https://i.ytimg.com/vi/egz1wDi6kng/maxresdefault.jpg')">
+              <div style="color: white; font-weight: bolder;" id="countdown"></div>
+              <div style="color: white; margin-top: 80px;" id="quote"></div>
+            </div>
+            <!-- More carousel items as per your number of images -->
+          </div>
+          <a class="carousel-control-prev" style="display: none;" href="#carouselExampleIndicators" role="button" data-slide="prev" >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" style="display: none;" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      
+      <!-- Your existing JavaScript here -->
+      <script>
+        // JavaScript Code Here
+        var endDate = new Date("June 6, 2023 22:00:00").getTime();
+    
+        var quotes = [
+        // Fill this array with the quotes
+        "\"There are three deaths. The first is when the body ceases to function. The second is when the body is consigned to the grave. The third is that moment, sometime in the future, when your name is spoken for the last time.\" - David Eagleman",
+        "\"Life begins where fear ends.\" - Osho",
+        "\"Be — don't try to become.\" - Osho",
+        "\"When we love, we always strive to become better than we are. When we strive to become better than we are, everything around us becomes better too.\" - Paulo Coelho",
+        ];
+    
+        var images = [
+        // Fill this array with the image URLs
+        "https://media.istockphoto.com/id/1163622485/tr/fotoğraf/bodrum-türkiye-yaz-tatili-eski-kentin-büyük-plajları.jpg?s=612x612&w=is&k=20&c=0eD-plZgf9DELtcTIGuTkt1KPyEIJcVX6dqo4ei8_3Q="
+        ];
+    
+        var countdown = setInterval(function() {
+        var now = new Date().getTime();
+        var t = endDate - now;
+    
+        var days = Math.floor(t / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+        var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((t % (1000 * 60)) / 1000);
+    
+        document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+        
+        if (t < 0) {
+            clearInterval(countdown);
+            document.getElementById("countdown").innerHTML = "She has arrived!";
+        }
+    
+        }, 1000);
+    
+        window.onload = function() {
+            var randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById("quote").innerHTML = randomQuote;
+        
+            // var randomImage = images[Math.floor(Math.random() * images.length)];
+            // document.getElementById("carousel").innerHTML = `<img src='${randomImage}' alt='Aegean Sea Image'>`;
+        }
+    </script>
+      
+      <!-- Required Bootstrap Scripts -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      
+    </body>      
+</html>
+
+
+
