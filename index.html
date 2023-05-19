@@ -23,7 +23,7 @@
     
             #countdown {
                 position: absolute;
-                top: 50%;
+                top: 20%;
                 left: 50%;
                 transform: translate(-50%, -50%);
                 text-align: center;
@@ -32,9 +32,9 @@
     
             #quote {
                 position: absolute;
-                top: 60%;
+                top: 25%;
                 left: 50%;
-                transform: translate(-50%, -50%);
+                transform: translate(-50%, 0%);
                 text-align: center;
                 font-size: 1.5em;
             }
@@ -42,7 +42,7 @@
     </head>
     <body>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
+          <ol class="carousel-indicators" style="display: none;">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
@@ -50,9 +50,9 @@
           </ol>
           <div class="carousel-inner" role="listbox">
             <!-- Carousel images here -->
-            <div class="carousel-item active" style="backdrop-filter: grayscale(100%); background-image: url('https://i.ytimg.com/vi/egz1wDi6kng/maxresdefault.jpg')">
+            <div class="carousel-item active" style="filter: grayscale(0%); background-image: url('https://i.ytimg.com/vi/egz1wDi6kng/maxresdefault.jpg')">
               <div style="color: white; font-weight: bolder;" id="countdown"></div>
-              <div style="color: white; margin-top: 80px;" id="quote"></div>
+              <div style="color: white; margin-top: 80px; font-weight: bolder;" id="quote"></div>
             </div>
             <!-- More carousel items as per your number of images -->
           </div>
@@ -74,8 +74,13 @@
         var quotes = [
         // Fill this array with the quotes
         "\"There are three deaths. The first is when the body ceases to function. The second is when the body is consigned to the grave. The third is that moment, sometime in the future, when your name is spoken for the last time.\" - David Eagleman",
+        "\"Brains are like fingerprints, and they're shaped by a different set of forces for each of us.\" - David Eagleman",
+        "\"Every decision we make, every thought and feeling we have, is an act of prediction about the future.\" - David Eagleman",
         "\"Life begins where fear ends.\" - Osho",
         "\"Be — don't try to become.\" - Osho",
+        "\"And, when you want something, all the universe conspires in helping you to achieve it.\" - Paulo Coelho",
+        "\"Don't move the way fear makes you move. Move the way love makes you move. Move the way joy makes you move.\" - Osho",
+        "\"It's the possibility of having a dream come true that makes life interesting.\" - Paulo Coelho",
         "\"When we love, we always strive to become better than we are. When we strive to become better than we are, everything around us becomes better too.\" - Paulo Coelho",
         ];
     
