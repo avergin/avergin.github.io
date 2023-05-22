@@ -8,41 +8,90 @@
         <!-- Bootstrap CSS -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     
-        <title>Girlfriend's Arrival Countdown</title>
+        <title>Countdown</title>
     
         <style>
-            .carousel-item {
-                height: 100vh;
-                min-height: 350px;
-                background: no-repeat center center scroll;
-                -webkit-background-size: cover;
-                -moz-background-size: cover;
-                -o-background-size: cover;
-                background-size: cover;
+          .carousel-item {
+              height: 100vh;
+              min-height: 350px;
+              background: no-repeat center center scroll;
+              -webkit-background-size: cover;
+              -moz-background-size: cover;
+              -o-background-size: cover;
+              background-size: cover;
+          }
+  
+          #countdown {
+              position: absolute;
+              top: 20%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              text-align: center;
+              font-size: 3em;
+          }
+  
+          #quote {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, 0%);
+              text-align: center;
+              font-size: 1.5em;
+          }
+
+          /* #footer {
+            position: relative;
+            width: 100%;
+            height: 100px;
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          } */
+
+          /* .pacman {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Pac_Man.svg/1200px-Pac_Man.svg.png');
+            background-size: cover;
+            animation: movePacman 4s linear infinite;
+            z-index: 2;
+          }
+
+          @keyframes movePacman {
+            0% {
+              left: 0;
             }
-    
-            #countdown {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                text-align: center;
-                font-size: 3em;
+            100% {
+              left: calc(100% - 30px);
             }
-    
-            #quote {
-                position: absolute;
-                top: 60%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                text-align: center;
-                font-size: 1.5em;
+          }
+
+          .bug {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-image: url('https://w7.pngwing.com/pngs/501/376/png-transparent-computer-icons-computer-programming-software-bug-funny-bug.png');
+            background-size: cover;
+            animation: moveBug 3s linear infinite;
+            z-index: 1;
+          }
+
+          @keyframes moveBug {
+            0% {
+              left: 100%;
             }
+            100% {
+              left: 0;
+            }
+          } */
         </style>
     </head>
     <body>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
+          <ol class="carousel-indicators" style="display: none;">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
@@ -50,11 +99,15 @@
           </ol>
           <div class="carousel-inner" role="listbox">
             <!-- Carousel images here -->
-            <div class="carousel-item active" style="backdrop-filter: grayscale(100%); background-image: url('https://i.ytimg.com/vi/egz1wDi6kng/maxresdefault.jpg')">
+            <div class="carousel-item active" style="filter: grayscale(0%); background-image: url('https://i.ytimg.com/vi/egz1wDi6kng/maxresdefault.jpg')">
               <div style="color: white; font-weight: bolder;" id="countdown"></div>
-              <div style="color: white; margin-top: 80px;" id="quote"></div>
+              <div style="color: white; margin-top: 80px; font-weight: bolder;" id="quote"></div>
             </div>
             <!-- More carousel items as per your number of images -->
+            <div id="footer" style="display: none;">
+              <div class="pacman"></div>
+              <div class="bug"></div>
+            </div>
           </div>
           <a class="carousel-control-prev" style="display: none;" href="#carouselExampleIndicators" role="button" data-slide="prev" >
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -74,8 +127,16 @@
         var quotes = [
         // Fill this array with the quotes
         "\"There are three deaths. The first is when the body ceases to function. The second is when the body is consigned to the grave. The third is that moment, sometime in the future, when your name is spoken for the last time.\" - David Eagleman",
+        "\"Brains are like fingerprints, and they're shaped by a different set of forces for each of us.\" - David Eagleman",
+        "\"Every decision we make, every thought and feeling we have, is an act of prediction about the future.\" - David Eagleman",
         "\"Life begins where fear ends.\" - Osho",
+        "\"Damlaya damlaya göl olur.\" - Winston Churchill",
+        "\"Easy choices hard life, hard choices easy life.\" - Kılışdar",
         "\"Be — don't try to become.\" - Osho",
+        "\"And, when you want something, all the universe conspires in helping you to achieve it.\" - Paulo Coelho",
+        "\"Don't move the way fear makes you move. Move the way love makes you move. Move the way joy makes you move.\" - Osho",
+        "\"It's the possibility of having a dream come true that makes life interesting.\" - Paulo Coelho",
+        "\"Am razıysa yarrak bağdattan gelir\" - Recep Tayyip Erdoğan",
         "\"When we love, we always strive to become better than we are. When we strive to become better than we are, everything around us becomes better too.\" - Paulo Coelho",
         ];
     
